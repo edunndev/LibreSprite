@@ -29,11 +29,11 @@ jobs:
     - name: appimage
       run: |
         cd build/bin
-        export ARCH="$(uname -m)"
+        export ARCH="aarch64"
         sh ../../package_linux.sh
         mv ./LibreSprite-anylinux-$ARCH.AppImage ../../
     - name: Archive production artifacts
-      if: runner.arch == 'arm64'
+      if: runner.arch == 'aarch64'
       uses: actions/upload-artifact@v4
       with:
         name: libresprite-development-linux-arm64
